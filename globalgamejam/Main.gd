@@ -27,6 +27,7 @@ func _level0():
 	
 	purpleInstance.position = $StartPosition.position #sets the purple's position to the start position
 	
+	redWorld.visible = false
 	
 # Code inside block will be updated every frame
 func _process(delta):
@@ -48,25 +49,28 @@ func end_world():
 	
 	
 	if groupSizeRED == 0:
-		purpleInstance.queue_free() #deletes the purple guy
-		
+	
 		redInstance = redChar.instance() 
 		add_child(redInstance) #adds the red guy
+		redInstance.position = purpleInstance.position
 		
+		purpleInstance.queue_free() #deletes the purple guy
 		
 		redWorld.visible = true #sets visibility for the worlds
 		purpleWorld.visible = false
+
+		
 	else:
-		redInstance.queue_free() #clears the red guy
 		
 		purpleInstance = purpleChar.instance() #adds the purple guy
 		add_child(purpleInstance)
+		purpleInstance.position = redInstance.position
 		
+		redInstance.queue_free() #clears the red guy
 		
 		redWorld.visible = false #sets the visibility for the worlds
 		purpleWorld.visible = true
-		
-		
+	
 	
 #	if redChar.visible == false:
 #
@@ -75,7 +79,7 @@ func end_world():
 #		purpleChar.visible = false
 #		purpleWorld.visible = false
 #
-#	else:
+#	else: 
 #
 #		redChar.visible = false
 #		purpleChar.visible = true

@@ -12,5 +12,5 @@ script = ExtResource( 3 )
 [node name="PurpleDimension" parent="." instance=ExtResource( 4 )]
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 37, 113 )
+position = Vector2( 21, 55 )
 rotation = 0.00024115
