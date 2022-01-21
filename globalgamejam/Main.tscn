@@ -7,6 +7,10 @@
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 
-[node name="RedDimension" parent="." groups=["red"] instance=ExtResource( 1 )]
+[node name="RedDimension" parent="." instance=ExtResource( 1 )]
 
-[node name="PurpleDimension" parent="." groups=["purple"] instance=ExtResource( 4 )]
+[node name="PurpleDimension" parent="." instance=ExtResource( 4 )]
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 37, 113 )
+rotation = 0.00024115

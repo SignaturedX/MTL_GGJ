@@ -6,9 +6,10 @@ onready var purpleChar = preload("res://Purple.tscn")
 onready var redChar = preload("res://Red.tscn")
 onready var purpleWorld = $PurpleDimension/Level1
 onready var redWorld = $RedDimension/Level1
+var purpleInstance
+var redInstance
 
-var purpleInstance = purpleChar.instantiate() #sets up the instance 
-var redInstance = redChar.instantiate()
+#var redInstance = redChar.instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,16 +21,12 @@ func _switch():
 	
 func _level0():
 	
-	add_child(purpleInstance) #adds the instance to the scene (purple)
+	#adding purple
+	purpleInstance = purpleChar.instance() 
+	add_child(purpleInstance) 
 	
-	add_child(redInstance)
+	purpleInstance.position = $StartPosition.position #sets the purple's position to the start position
 	
-	#setting start positions for each character at the start of the level
-	
-	purpleInstance.position = $PurpleDimension/StartPosition.position
-	
-	redInstance.position = $RedDimension/StartPosition.position
-	redInstance.visible = false
 	
 # Code inside block will be updated every frame
 func _process(delta):
@@ -43,16 +40,44 @@ func _process(delta):
 		
 func end_world():
 	
-	if redChar.visible == false:
+	var groupSizeRED = get_tree().get_nodes_in_group("red").size()
+	var groupSizePURPLE = get_tree().get_nodes_in_group("purple").size()
 	
-		redWorld.visible = true
-		redChar.visible = true
-		purpleChar.visible = false
+	print("in purple there are: " + str(groupSizePURPLE))
+	print("in red there are: " + str(groupSizeRED))
+	
+	
+	if groupSizeRED == 0:
+		purpleInstance.queue_free() #deletes the purple guy
+		
+		redInstance = redChar.instance() 
+		add_child(redInstance) #adds the red guy
+		
+		
+		redWorld.visible = true #sets visibility for the worlds
 		purpleWorld.visible = false
-		
 	else:
+		redInstance.queue_free() #clears the red guy
 		
-		redChar.visible = false
-		purpleChar.visible = true
+		purpleInstance = purpleChar.instance() #adds the purple guy
+		add_child(purpleInstance)
+		
+		
+		redWorld.visible = false #sets the visibility for the worlds
 		purpleWorld.visible = true
-		redWorld.visible = false
+		
+		
+	
+#	if redChar.visible == false:
+#
+#		redWorld.visible = true
+#		redChar.visible = true
+#		purpleChar.visible = false
+#		purpleWorld.visible = false
+#
+#	else:
+#
+#		redChar.visible = false
+#		purpleChar.visible = true
+#		purpleWorld.visible = true
+#		redWorld.visible = false

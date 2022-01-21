@@ -4,7 +4,7 @@ extends KinematicBody2D
 var motion = Vector2.ZERO
 
 onready var sprite = $AnimatedSprite
-onready var world = Main.new()
+#onready var world = Main.new()
 
 func physics(dif = 0.01, type = "NONE", accel = 512, msp = 64, fric = 0.25, grav = 200, jf = 128, ar = 0.04):
 	

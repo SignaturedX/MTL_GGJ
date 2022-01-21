@@ -50,7 +50,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Red" type="KinematicBody2D"]
+[node name="Red" type="KinematicBody2D" groups=["red"]]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
