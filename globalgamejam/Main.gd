@@ -29,7 +29,14 @@ func _level0():
 # Code inside block will be updated every frame
 func _process(delta):
 	
+<<<<<<< Updated upstream
 	var x_input = Input.is_action_just_pressed("dim_swap_key")
+=======
+<<<<<<< HEAD
+=======
+	var x_input = Input.is_action_just_pressed("dim_swap_key")
+>>>>>>> 54d9f94810bfe094ffe7b33c4c1b4df438903b4b
+>>>>>>> Stashed changes
 	
 	if x_input != false:
 		
