@@ -7,6 +7,7 @@ const GRAVITY = 200
 const JUMP_FORCE = 128
 const AIR_RESISTANCE = 0.04
 
+
 var motion = Vector2.ZERO
 
 onready var sprite = $AnimatedSprite #declaring a var for sprite for simplicity in code
