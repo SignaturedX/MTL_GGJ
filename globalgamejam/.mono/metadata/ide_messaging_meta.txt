@@ -1,2 +1,0 @@
-﻿57418
-C:/Users/Ben/Desktop/Godot (C# support)/Godot_v3.4.2-stable_mono_win64.exe
