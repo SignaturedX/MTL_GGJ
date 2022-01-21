@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Main.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "character",
 "language": "GDScript",
 "path": "res://character.gd"
 } ]
 _global_script_class_icons={
+"Main": "",
 "character": ""
 }
 

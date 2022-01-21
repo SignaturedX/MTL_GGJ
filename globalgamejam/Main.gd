@@ -1,13 +1,14 @@
 class_name Main
 extends Node
 
-onready var purpleChar = $Purple
-onready var redChar = $Red
+
+onready var purpleChar = preload("res://Purple.tscn")
+onready var redChar = preload("res://Red.tscn")
 onready var purpleWorld = $PurpleDimension/Level1
 onready var redWorld = $RedDimension/Level1
 
-onready var red = get_tree().get_nodes_in_group("red")
-onready var purple = get_tree().get_nodes_in_group("purple")
+var purpleInstance = purpleChar.instantiate() #sets up the instance 
+var redInstance = redChar.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,12 +20,16 @@ func _switch():
 	
 func _level0():
 	
+	add_child(purpleInstance) #adds the instance to the scene (purple)
+	
+	add_child(redInstance)
+	
 	#setting start positions for each character at the start of the level
 	
-	purpleChar.position = $PurpleDimension/StartPosition.position
+	purpleInstance.position = $PurpleDimension/StartPosition.position
 	
-	redChar.position = $RedDimension/StartPosition.position
-	redChar.visible = false
+	redInstance.position = $RedDimension/StartPosition.position
+	redInstance.visible = false
 	
 # Code inside block will be updated every frame
 func _process(delta):
