@@ -2,10 +2,13 @@ class_name Main
 extends Node
 
 
+onready var world_access = worlds.new()
 onready var purpleChar = preload("res://Purple.tscn")
 onready var redChar = preload("res://Red.tscn")
-onready var purpleWorld = $PurpleDimension/Level1
-onready var redWorld = $RedDimension/Level1
+onready var menuHelp = menu.new()
+onready var purpleWorld = $MainMenu/Levels/PurpleDimension/Level1
+onready var redWorld = $MainMenu/Levels/RedDimension/Level1
+onready var mainMenu = $MainMenu
 var purpleInstance
 var redInstance
 
@@ -14,6 +17,10 @@ var redInstance
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_level0()
+	$CanvasLayer/PauseMenu.hide()
+	mainMenu.hide()
+	
+	
 	
 
 func _switch():
@@ -37,6 +44,7 @@ func _process(delta):
 	if x_input != false:
 		
 		end_world()
+		menuHelp.call_main()
 		
 		
 func end_world():
@@ -58,6 +66,8 @@ func end_world():
 		
 		redWorld.visible = true #sets visibility for the worlds
 		purpleWorld.visible = false
+		
+		
 
 		
 	else:
