@@ -451,9 +451,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 0/z_index = 0
 
-[node name="PurpleDimension" type="Node"]
-
-[node name="Level1" type="TileMap" parent="."]
+[node name="Level1_P" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://title_font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=2]
 
 [node name="PauseMenu" type="Control"]
 anchor_right = 1.0
@@ -24,21 +24,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -41.0
+margin_left = -53.0
 margin_top = -47.0
-margin_right = 41.0
+margin_right = 53.0
 margin_bottom = 47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 8.0
-margin_right = 74.0
+margin_right = 106.0
 margin_bottom = 94.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer2"]
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 1 )
@@ -47,14 +46,14 @@ align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer2"]
 margin_top = 20.0
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 94.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "RESUME"
@@ -62,32 +61,34 @@ flat = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
 margin_top = 26.0
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 74.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
-margin_right = 66.0
+[node name="QuitToMenu" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+margin_right = 106.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
-text = "SAVE"
+text = "QUIT TO MENU"
 flat = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
 margin_top = 26.0
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/VBoxContainer2"]
-margin_right = 66.0
+margin_right = 106.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "QUIT"
 flat = true
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/QuitToMenu" to="." method="_on_QuitToMenu_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]

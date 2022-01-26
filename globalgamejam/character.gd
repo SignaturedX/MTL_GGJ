@@ -12,7 +12,7 @@ func physics(dif = 0.01, type = "NONE", accel = 512, msp = 64, fric = 0.25, grav
 		
 		if x_input != 0: # If the player is moving
 			
-			sprite.play("move") # Plays the move animation
+			sprite.play("move2") # Plays the move animation
 			
 			motion.x += x_input * accel * dif
 			
@@ -26,7 +26,7 @@ func physics(dif = 0.01, type = "NONE", accel = 512, msp = 64, fric = 0.25, grav
 			
 			if is_on_floor(): # If the player is on the floor, play the "idle" animation
 				
-				sprite.play("idle")
+				sprite.play("idle2")
 			
 		motion.y += grav * dif
 

@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "levels",
 "language": "GDScript",
-"path": "res://levels.gd"
+"path": "res://Levels/levels.gd"
 }, {
-"base": "Node",
+"base": "Control",
 "class": "menu",
 "language": "GDScript",
-"path": "res://menu.gd"
+"path": "res://UI/menu.gd"
 }, {
 "base": "Node",
 "class": "worlds",

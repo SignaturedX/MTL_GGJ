@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/title_font_large.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="LevelMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0588235, 0.121569, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -108.0
+margin_right = 384.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CenterContainer"]
+margin_left = 174.0
+margin_top = 87.0
+margin_right = 210.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/normal = SubResource( 1 )
+text = "01"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CenterContainer"]
+margin_left = 174.0
+margin_top = 87.0
+margin_right = 210.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/normal = SubResource( 1 )
+text = "01"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="CenterContainer"]
+margin_left = 174.0
+margin_top = 87.0
+margin_right = 210.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/normal = SubResource( 1 )
+text = "01"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

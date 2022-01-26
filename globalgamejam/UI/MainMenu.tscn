@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/menu.gd" type="Script" id=2]
 
 [node name="MainMenu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,3 +89,6 @@ margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "QUIT"
 flat = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]

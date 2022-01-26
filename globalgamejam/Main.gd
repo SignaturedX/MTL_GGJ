@@ -1,30 +1,22 @@
 class_name Main
 extends Node
 
-
 onready var world_access = worlds.new()
-onready var purpleChar = preload("res://Purple.tscn")
-onready var redChar = preload("res://Red.tscn")
-onready var menuHelp = menu.new()
-onready var purpleWorld = $MainMenu/Levels/PurpleDimension/Level1
-onready var redWorld = $MainMenu/Levels/RedDimension/Level1
-onready var mainMenu = $MainMenu
+onready var purpleChar = preload("res://Players/Purple.tscn")
+onready var redChar = preload("res://Players/Red.tscn")
+#onready var menuHelp = menu.new()
+onready var purpleWorld = $Levels/Level1_P
+onready var redWorld = $Levels/Level1_R
+onready var mainMenu = $UI/MainMenu
 var purpleInstance
 var redInstance
 
-#var redInstance = redChar.instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_level0()
-	$CanvasLayer/PauseMenu.hide()
+	$UI/PauseMenu.hide()
 	mainMenu.hide()
-	
-	
-	
-
-func _switch():
-	pass
 	
 func _level0():
 	
@@ -43,19 +35,15 @@ func _process(delta):
 	
 	if x_input != false:
 		
-		end_world()
-		menuHelp.call_main()
+		end_world() 
+		#menuHelp.call_main() 
 		
 		
 func end_world():
 	
 	var groupSizeRED = get_tree().get_nodes_in_group("red").size()
 	var groupSizePURPLE = get_tree().get_nodes_in_group("purple").size()
-	
-	print("in purple there are: " + str(groupSizePURPLE))
-	print("in red there are: " + str(groupSizeRED))
-	
-	
+
 	if groupSizeRED == 0:
 	
 		redInstance = redChar.instance() 
@@ -66,9 +54,6 @@ func end_world():
 		
 		redWorld.visible = true #sets visibility for the worlds
 		purpleWorld.visible = false
-		
-		
-
 		
 	else:
 		
@@ -81,17 +66,6 @@ func end_world():
 		redWorld.visible = false #sets the visibility for the worlds
 		purpleWorld.visible = true
 	
-	
-#	if redChar.visible == false:
-#
-#		redWorld.visible = true
-#		redChar.visible = true
-#		purpleChar.visible = false
-#		purpleWorld.visible = false
-#
-#	else: 
-#
-#		redChar.visible = false
-#		purpleChar.visible = true
-#		purpleWorld.visible = true
-#		redWorld.visible = false
+
+func _on_MainMenu_start_game():
+	print("okay starting game")
