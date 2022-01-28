@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Players/Purple.gd" type="Script" id=1]
 [ext_resource path="res://Player1.png" type="Texture" id=2]
 [ext_resource path="res://purple_player.png" type="Texture" id=3]
 [ext_resource path="res://purple_light_bckg.png" type="Texture" id=4]
+[ext_resource path="res://Audio/ES_Dress Shoes Run 1 - SFX Producer.mp3" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 11 )
@@ -119,3 +120,6 @@ limit_top = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_limits = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

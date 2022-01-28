@@ -6,7 +6,7 @@ signal quit_to_menu
 func _ready():
 	pass # Replace with function body.
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_cancel"): #always is ready for user to press Esc
 		get_tree().paused = true #pauses all processes but this one
 		visible = true #makes this menu visible
@@ -20,7 +20,7 @@ func _on_Resume_pressed():
 	get_tree().paused = false #unpauses the tree processes
 	visible = false #makes this pause menu invisible
 
-#when the quit to menu button is pressed
+#when the qu
 func _on_QuitToMenu_pressed():
 	emit_signal("quit_to_menu")
 	visible = false

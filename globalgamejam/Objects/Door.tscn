@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://door_closed.png" type="Texture" id=1]
+[ext_resource path="res://open_door.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Door.gd" type="Script" id=3]
+[ext_resource path="res://Audio/ES_Door Open 2 - SFX Producer.mp3" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 17.5 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "closed",
+"speed": 5.0
+} ]
+
+[node name="Door" type="Area2D"]
+collision_mask = 9
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "open"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]

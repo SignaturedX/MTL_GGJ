@@ -2,13 +2,17 @@ extends "res://character.gd"
 
 const ACCELERATION = 512
 const MAX_SPEED = 80
-const FRICTION = 0.25
-const GRAVITY = 300
+const FRICTION = 0.1
+const GRAVITY = 400
 const JUMP_FORCE = 128
 const AIR_RESISTANCE = 0.02
 
 const char_name = "PURPLE"
+export var level = 0
+export var health = 3
 
+func _ready():
+	camera_pos(level)
 
 func _physics_process(delta):
 	

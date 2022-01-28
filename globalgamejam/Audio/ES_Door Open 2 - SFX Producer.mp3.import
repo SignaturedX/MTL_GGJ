@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ES_Door Open 2 - SFX Producer.mp3-60fef912d1dbfdfb6d86677f6110c692.mp3str"
+
+[deps]
+
+source_file="res://Audio/ES_Door Open 2 - SFX Producer.mp3"
+dest_files=[ "res://.import/ES_Door Open 2 - SFX Producer.mp3-60fef912d1dbfdfb6d86677f6110c692.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
