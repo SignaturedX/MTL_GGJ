@@ -6,6 +6,9 @@ signal level_complete
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.play("closed")
+#	var torch = Levels.get_node("Torch")
+#	print(torch)
+#	torch.connect("")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

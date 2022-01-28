@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character.gd"
 }, {
-"base": "Node",
-"class": "levels",
-"language": "GDScript",
-"path": "res://Levels/levels.gd"
-}, {
 "base": "Control",
 "class": "menu",
 "language": "GDScript",
@@ -32,7 +27,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Main": "",
 "character": "",
-"levels": "",
 "menu": ""
 }
 

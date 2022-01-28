@@ -9,26 +9,27 @@ var redInstance
 var groupSizeRED
 var groupSizePURPLE
 var level
+var mainLevelCounter
+var animation_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$UI/PauseMenu.hide()
 	mainMenu.hide()
 	$UI/AnimationPlayer.play("fade_to_normal")
-	level = levels.new(get_tree())
-	level.level0()
-	
+#	level = levels.new()
+#	level.level0()
+#	mainLevelCounter = level.level_counter
 	
 	
 # Code inside block will be updated every frame
 func _process(_delta):
-	
+#	if level.level_counter != mainLevelCounter:
+#		print("ANIMATING!!!!!!")
+#		animate()
+#		mainLevelCounter = level.level_counter
 	# for swapping between worlds
-	var x_input = Input.is_action_just_pressed("dim_swap_key")
-
-	if x_input != false:
-
-		level.end_world() 
+	pass 
 #
 #	#players health stuff
 #	groupSizePURPLE = get_tree().get_nodes_in_group("purple").size()
@@ -44,9 +45,16 @@ func _process(_delta):
 #	else:
 #		$UI/HUD.display_health(null, null, "neither") #if neither purple or red exist
 
+func animate():
+	$UI/AnimationPlayer.play("fade_to_black")
 
 func _on_MainMenu_start_game():
-	level.clear_all()
-	level.level0()
+#	level.clear_all()
+#	level.level0()
+	pass
 
-
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	animation_finished = true
+	$UI/ColorRect.visible = false
+	print("animation finished")
+	
