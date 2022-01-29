@@ -470,5 +470,3 @@ position = Vector2( 32, 64 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 360.184, 110.501 )
-
-[connection signal="torch_on" from="Torch" to="Door" method="_on_Torch_torch_on"]

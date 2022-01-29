@@ -1,6 +1,7 @@
 #class_name levels
 extends Node
 # warning-ignore:unused_signal
+
 var purpleChar = preload("res://Players/Purple.tscn")
 var redChar = preload("res://Players/Red.tscn")
 var purpleInstance
@@ -16,7 +17,10 @@ onready var sceneTree = get_tree()
 var level_counter = 0
 var animation_finished = false
 var door
+var light = false
 var torch
+
+signal heartGain
 
 
 # DELETES ALL ACTIVES INSTANCES
@@ -99,6 +103,18 @@ func end_world():
 		door = currentMap.get_node("Door")
 		door.connect("level_complete", self, "_on_Door_level_complete")
 		
+		if currentMap.get_node("Torch") != null:
+			
+			torch = currentMap.get_node("Torch")
+			print(torch)
+			torch.connect("torch_on_level", self, "_on_Torch_Light")
+			
+			if light == true:
+				
+				currentMap.get_node("Torch").get_node("AnimatedSprite").play("lit")
+				emit_signal("game_condition", true)
+				door.state = true
+		
 	# SWAP TO PURPLE
 	else: 
 		
@@ -114,6 +130,26 @@ func end_world():
 		redInstance.queue_free() #clears the red guy
 		door = currentMap.get_node("Door")
 		door.connect("level_complete", self, "_on_Door_level_complete")
+		
+		
+		if currentMap.get_node("Torch") != null:
+			
+			torch = currentMap.get_node("Torch")
+			torch.connect("torch_on_level", self, "_on_Torch_Light")
+			print(torch)
+			
+			if light == true:
+				currentMap.get_node("Torch").get_node("AnimatedSprite").play("lit")
+				emit_signal("game_condition", true)
+				door.state = true
+	
+		
+# ON TORCH LIGHT -- > SAVE TORCH CONDITION
+func _on_Torch_Light():
+	
+	light = true
+	
+
 
 # WIN CONDITION, SWAP TO NEXT LEVEL
 func _on_Door_level_complete():

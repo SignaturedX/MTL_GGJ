@@ -4,7 +4,7 @@
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://UI/MainMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://HUD_R.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -89,6 +89,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="heartGain" from="Levels" to="UI/HUD" method="_on_Levels_heartGain"]
 [connection signal="start_game" from="UI/MainMenu" to="." method="_on_MainMenu_start_game"]
 [connection signal="quit_to_menu" from="UI/PauseMenu" to="UI/MainMenu" method="_on_PauseMenu_quit_to_menu"]
 [connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

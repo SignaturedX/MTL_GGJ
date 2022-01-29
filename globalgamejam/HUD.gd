@@ -8,12 +8,18 @@ onready var heart_group = get_tree().get_nodes_in_group("hearts")
 func _ready():
 	pass # Replace with function body.
 	
-func display_health(health_p, health_r, dim):
-	match dim:
-		"purple":
-			for i in health_p:
-				heart_group[i].texture = purple_heart
-		"red":
-			for i in health_r:
-				heart_group[i].texture = red_heart
-		
+func display_health(health_p=0, health_r=0):
+	
+			
+	for i in health_p:
+				
+		heart_group[i].texture = purple_heart
+			
+	for i in health_r:
+				
+		heart_group[i].texture = red_heart
+
+func _on_Levels_heartGain():
+	
+	display_health(1, 1)
+	
