@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/title_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/menu.gd" type="Script" id=2]
+[ext_resource path="res://background2.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/title_font_large.tres" type="DynamicFont" id=4]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -12,10 +14,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0389099, 0.0535822, 0.132813, 1 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,36 +27,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -41.0
-margin_top = -47.0
-margin_right = 41.0
-margin_bottom = 47.0
+margin_left = -150.0
+margin_top = -55.0
+margin_right = 150.0
+margin_bottom = 55.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
-margin_right = 82.0
-margin_bottom = 94.0
+margin_right = 300.0
+margin_bottom = 110.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer2"]
-margin_right = 82.0
-margin_bottom = 16.0
-custom_colors/font_color = Color( 0.176471, 0.74902, 1, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "GAME NAME"
+margin_right = 300.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.765625, 0.0448608, 0.289649, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "DUALITY OF THE SOULS"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer2"]
-margin_top = 20.0
-margin_right = 82.0
-margin_bottom = 94.0
+margin_top = 36.0
+margin_right = 300.0
+margin_bottom = 110.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
-margin_right = 82.0
+margin_right = 300.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "START"
@@ -62,14 +64,14 @@ flat = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
 margin_top = 26.0
-margin_right = 82.0
+margin_right = 300.0
 margin_bottom = 74.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="About" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
-margin_right = 82.0
+margin_right = 300.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "ABOUT"
@@ -77,14 +79,14 @@ flat = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
 margin_top = 26.0
-margin_right = 82.0
+margin_right = 300.0
 margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/VBoxContainer2"]
-margin_right = 82.0
+margin_right = 300.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "QUIT"
