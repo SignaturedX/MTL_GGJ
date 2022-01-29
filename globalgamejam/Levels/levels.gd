@@ -32,11 +32,10 @@ func clear_all():
 func _ready():
 	level0()
 	door = currentMap.get_node("Door")
-	print(door)
 	door.connect("level_complete", self, "_on_Door_level_complete")
 	
-	
 func _process(delta):
+	
 	var x_input = Input.is_action_just_pressed("dim_swap_key")
 
 	if x_input != false:
@@ -52,10 +51,6 @@ func level0():
 	
 	currentMap = levelMap_P.instance()
 	sceneTree.get_root().call_deferred("add_child", currentMap) #adds the level
-
-	door = currentMap.get_node("Door")
-	print(door)
-	door.connect("level_complete", self, "_on_Door_level_complete")
 	print("connected")
 
 
@@ -101,6 +96,8 @@ func end_world():
 		sceneTree.get_root().add_child(redInstance)
 		redInstance.position = purpleInstance.position
 		purpleInstance.queue_free() #clears the purple guy
+		door = currentMap.get_node("Door")
+		door.connect("level_complete", self, "_on_Door_level_complete")
 		
 	# SWAP TO PURPLE
 	else: 
@@ -115,9 +112,23 @@ func end_world():
 		sceneTree.get_root().add_child(purpleInstance)
 		purpleInstance.position = redInstance.position
 		redInstance.queue_free() #clears the red guy
+		door = currentMap.get_node("Door")
+		door.connect("level_complete", self, "_on_Door_level_complete")
 
 # WIN CONDITION, SWAP TO NEXT LEVEL
 func _on_Door_level_complete():
+	
+	if sceneTree.get_nodes_in_group("red").size() == 1:
+		
+		currentMap.queue_free()
+		redInstance.queue_free()
+	
+	else:
+		
+		currentMap.queue_free()
+		purpleInstance.queue_free()
+		
+		
 	print("level complete signal received")
 	level_counter += 1
 	print(sceneTree)

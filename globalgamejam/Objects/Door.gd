@@ -13,8 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
 	if Input.is_action_pressed("interact"): #if the E key is pressed or right click
-		if player_detected == true and win_condition == true: #check if there is also a collision
+		if player_detected == true: #check if there is also a collision
 			print("door")
 			$AnimatedSprite.play("open") #light the torch
 			#$AudioStreamPlayer.play()
