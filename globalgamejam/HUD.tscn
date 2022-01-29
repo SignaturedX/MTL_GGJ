@@ -11,7 +11,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="HBoxContainer" parent="."]
+[node name="purple_bar" type="HBoxContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 154.0
@@ -21,7 +21,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" groups=["hearts"]]
+[node name="purp1" type="TextureRect" parent="purple_bar" groups=["purple_hearts"]]
 margin_right = 16.0
 margin_bottom = 16.0
 texture = ExtResource( 1 )
@@ -30,7 +30,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer" groups=["hearts"]]
+[node name="purp2" type="TextureRect" parent="purple_bar" groups=["purple_hearts"]]
 margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
@@ -40,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer" groups=["hearts"]]
+[node name="purp3" type="TextureRect" parent="purple_bar" groups=["purple_hearts"]]
 margin_left = 40.0
 margin_right = 56.0
 margin_bottom = 16.0
@@ -50,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer" groups=["hearts"]]
+[node name="purp4" type="TextureRect" parent="purple_bar" groups=["purple_hearts"]]
 margin_left = 60.0
 margin_right = 76.0
 margin_bottom = 16.0
@@ -60,7 +60,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect5" type="TextureRect" parent="VBoxContainer" groups=["hearts"]]
+[node name="purp5" type="TextureRect" parent="purple_bar" groups=["purple_hearts"]]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red_bar" type="HBoxContainer" parent="." groups=["red_hearts"]]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="red1" type="TextureRect" parent="red_bar" groups=["red_hearts"]]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red2" type="TextureRect" parent="red_bar" groups=["red_hearts"]]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red3" type="TextureRect" parent="red_bar" groups=["red_hearts"]]
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red4" type="TextureRect" parent="red_bar" groups=["red_hearts"]]
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red5" type="TextureRect" parent="red_bar" groups=["red_hearts"]]
 margin_left = 80.0
 margin_right = 96.0
 margin_bottom = 16.0

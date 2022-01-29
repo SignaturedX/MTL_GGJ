@@ -484,4 +484,4 @@ __meta__ = {
 position = Vector2( 357, 111 )
 
 [node name="Torch" parent="." instance=ExtResource( 5 )]
-position = Vector2( -53, 4 )
+position = Vector2( -70, 8 )
