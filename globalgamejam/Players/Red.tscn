@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Players/Red.gd" type="Script" id=1]
 [ext_resource path="res://Player2.png" type="Texture" id=2]
 [ext_resource path="res://red_player.png" type="Texture" id=3]
 [ext_resource path="res://red-light.png" type="Texture" id=4]
 [ext_resource path="res://Audio/ES_Dress Shoes Run 1 - SFX Producer.mp3" type="AudioStream" id=5]
+[ext_resource path="res://background.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 10.5 )
@@ -41,6 +42,10 @@ region = Rect2( 120, 0, 24, 20 )
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 24, 20 )
 
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 22 )
+
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 24, 22 )
@@ -65,10 +70,6 @@ region = Rect2( 96, 0, 24, 22 )
 atlas = ExtResource( 3 )
 region = Rect2( 144, 0, 24, 22 )
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 24, 22 )
-
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 10 ) ],
@@ -81,14 +82,14 @@ animations = [ {
 "name": "move",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
-"loop": true,
-"name": "move2",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 17 ) ],
 "loop": true,
 "name": "idle2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "move2",
 "speed": 5.0
 } ]
 
@@ -121,3 +122,13 @@ editor_draw_limits = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 384, 216 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+texture = ExtResource( 6 )
+centered = false
