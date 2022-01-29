@@ -55,8 +55,6 @@ tracks/0/keys = {
 pause_mode = 1
 script = ExtResource( 3 )
 
-[node name="Levels" parent="." instance=ExtResource( 1 )]
-
 [node name="UI" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -89,7 +87,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="heartGain" from="Levels" to="UI/HUD" method="_on_Levels_heartGain"]
+[node name="Levels" parent="." instance=ExtResource( 1 )]
+
 [connection signal="start_game" from="UI/MainMenu" to="." method="_on_MainMenu_start_game"]
 [connection signal="quit_to_menu" from="UI/PauseMenu" to="UI/MainMenu" method="_on_PauseMenu_quit_to_menu"]
 [connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="heartGain" from="Levels" to="UI/HUD" method="_on_Levels_heartGain"]
+[connection signal="heartsVisible" from="Levels" to="UI/HUD" method="_on_Levels_heartsVisible"]

@@ -19,12 +19,17 @@ var animation_finished = false
 var door
 var light = false
 var torch
+var heart
+var totalHearts = 0
+var dimension = "purple"
 
 signal heartGain
+signal heartsVisible
 
 
 # DELETES ALL ACTIVES INSTANCES
 func clear_all():
+	
 	if purpleInstance != null:
 		purpleInstance.queue_free()
 	if redInstance != null:
@@ -34,9 +39,12 @@ func clear_all():
 	print("Clear successful!")
 
 func _ready():
+	
 	level0()
-	door = currentMap.get_node("Door")
-	door.connect("level_complete", self, "_on_Door_level_complete")
+	
+	coreSignals()
+	
+	
 	
 func _process(delta):
 	
@@ -100,20 +108,9 @@ func end_world():
 		sceneTree.get_root().add_child(redInstance)
 		redInstance.position = purpleInstance.position
 		purpleInstance.queue_free() #clears the purple guy
-		door = currentMap.get_node("Door")
-		door.connect("level_complete", self, "_on_Door_level_complete")
 		
-		if currentMap.get_node("Torch") != null:
-			
-			torch = currentMap.get_node("Torch")
-			print(torch)
-			torch.connect("torch_on_level", self, "_on_Torch_Light")
-			
-			if light == true:
-				
-				currentMap.get_node("Torch").get_node("AnimatedSprite").play("lit")
-				emit_signal("game_condition", true)
-				door.state = true
+		dimension = "red"
+		emit_signal("heartsVisible", dimension)
 		
 	# SWAP TO PURPLE
 	else: 
@@ -128,29 +125,49 @@ func end_world():
 		sceneTree.get_root().add_child(purpleInstance)
 		purpleInstance.position = redInstance.position
 		redInstance.queue_free() #clears the red guy
-		door = currentMap.get_node("Door")
-		door.connect("level_complete", self, "_on_Door_level_complete")
 		
+		dimension = "purple"
+		emit_signal("heartsVisible", dimension)
 		
-		if currentMap.get_node("Torch") != null:
-			
-			torch = currentMap.get_node("Torch")
-			torch.connect("torch_on_level", self, "_on_Torch_Light")
-			print(torch)
-			
-			if light == true:
-				currentMap.get_node("Torch").get_node("AnimatedSprite").play("lit")
-				emit_signal("game_condition", true)
-				door.state = true
+	coreSignals()
 	
+
 		
 # ON TORCH LIGHT -- > SAVE TORCH CONDITION
 func _on_Torch_Light():
 	
 	light = true
 	
+func coreSignals():
+	
+	
+	emit_signal("heartsVisible", dimension)
 
+	door = currentMap.get_node("Door")
+	door.connect("level_complete", self, "_on_Door_level_complete")
+		
+	if currentMap.get_node("Torch") != null:
+			
+		torch = currentMap.get_node("Torch")
+		print(torch)
+		torch.connect("torch_on_level", self, "_on_Torch_Light")
+			
+		if light == true:
+				
+			currentMap.get_node("Torch").get_node("AnimatedSprite").play("lit")
+			door.state = true
+			
+	if currentMap.get_node("Heart") != null:
+		
+		heart = currentMap.get_node("Heart")
+		heart.connect("health_increase", self, "HI_HUD")
+		
 
+func HI_HUD():
+	
+	emit_signal("heartGain")
+	totalHearts += 1
+	
 # WIN CONDITION, SWAP TO NEXT LEVEL
 func _on_Door_level_complete():
 	
