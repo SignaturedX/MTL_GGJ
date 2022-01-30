@@ -246,5 +246,12 @@ frames = SubResource( 53 )
 anims/RESET = SubResource( 54 )
 anims/epic_animation = SubResource( 55 )
 
+[node name="PopupDialog" type="PopupDialog" parent="."]
+visible = true
+margin_left = 104.0
+margin_top = 152.0
+margin_right = 272.0
+margin_bottom = 192.0
+
 [connection signal="area_entered" from="Chest" to="Chest" method="_on_Chest_area_entered"]
 [connection signal="area_entered" from="Chest2" to="Chest2" method="_on_Chest2_area_entered"]
