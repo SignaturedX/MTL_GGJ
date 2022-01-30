@@ -24,6 +24,9 @@ func _ready():
 	
 # Code inside block will be updated every frame
 func _process(_delta):
+	
+	if !$AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 #	if level.level_counter != mainLevelCounter:
 #		print("ANIMATING!!!!!!")
 #		animate()

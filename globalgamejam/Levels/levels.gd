@@ -83,12 +83,14 @@ func level0():
 	
 # LEVEL 1
 func level1(level_num):
+	light = false
 	setup(level_num)
 	level_counter += 1
 	
 # LEVEL 2
 func level2(level_num):
 	
+	light = false
 	level_counter += 1 #updating the level
 	
 	currentItemMap.queue_free()
