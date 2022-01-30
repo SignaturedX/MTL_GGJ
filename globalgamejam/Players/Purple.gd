@@ -20,6 +20,3 @@ func _physics_process(delta):
 	physics(delta, char_name, ACCELERATION, MAX_SPEED, FRICTION, GRAVITY, JUMP_FORCE, AIR_RESISTANCE)
 	camera_pos(level)
 	
-func levelInc():
-	
-	level += 1

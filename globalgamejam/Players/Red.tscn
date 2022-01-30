@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Players/Red.gd" type="Script" id=1]
 [ext_resource path="res://Player2.png" type="Texture" id=2]
 [ext_resource path="res://red_player.png" type="Texture" id=3]
+[ext_resource path="res://bloom_light.png" type="Texture" id=4]
 [ext_resource path="res://Audio/ES_Dress Shoes Run 1 - SFX Producer.mp3" type="AudioStream" id=5]
 [ext_resource path="res://background2.png" type="Texture" id=6]
+[ext_resource path="res://spot_light.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 10.5 )
@@ -12,6 +14,10 @@ extents = Vector2( 6, 10.5 )
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 24, 20 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 22 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
@@ -65,15 +71,16 @@ region = Rect2( 120, 0, 24, 20 )
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 24, 20 )
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 24, 22 )
-
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 10 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "idle2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
@@ -84,11 +91,6 @@ animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "move",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 17 ) ],
-"loop": true,
-"name": "idle2",
 "speed": 5.0
 } ]
 
@@ -103,6 +105,17 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0.5 )
 shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+energy = 1.2
+shadow_enabled = true
+shadow_gradient_length = 10.0
+shadow_filter = 5
+shadow_filter_smooth = 30.0
+
+[node name="Sprite" type="Sprite" parent="Light2D"]
+texture = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )

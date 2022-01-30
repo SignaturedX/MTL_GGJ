@@ -2,11 +2,10 @@ extends Area2D
 var object = false
 signal torch_on_level
 signal torch_on_door
-onready var door = get_parent().get_node("Door")
+onready var door
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	$AnimatedSprite.play("unlit") #torch begins unlit
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +16,7 @@ func _process(_delta):
 			$AnimatedSprite.play("lit") #light the torch
 			$AudioStreamPlayer.play()
 			object = false
+			door = get_parent().get_node("Door")
 			emit_signal("torch_on_level")
 			emit_signal("torch_on_door")
 			door.state = true

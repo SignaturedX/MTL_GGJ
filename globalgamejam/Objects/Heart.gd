@@ -8,7 +8,6 @@ func _ready():
 
 
 func _on_Heart_body_entered(_body):
-	#$Label.visible = true
-	visible = false #hides the heart
 	emit_signal("health_increase")
+	queue_free()
 	#plays a sound
