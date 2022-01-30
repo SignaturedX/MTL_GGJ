@@ -23,4 +23,5 @@ func _on_Resume_pressed():
 #when the qu
 func _on_QuitToMenu_pressed():
 	emit_signal("quit_to_menu")
+	get_parent().get_node("HUD").visible = false
 	visible = false

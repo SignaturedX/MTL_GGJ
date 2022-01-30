@@ -8,6 +8,7 @@ var purpleInstance
 var redInstance
 var purpleMaps = [load("res://Levels/Level0_P.tscn"), load("res://Levels/Level1_P.tscn")]
 var redMaps = [load("res://Levels/Level0_R.tscn"), load("res://Levels/Level1_R.tscn")]
+var loadOnce = []
 var groupSizeRED
 var groupSizePURPLE
 var levelMap_R
@@ -20,11 +21,12 @@ var door
 var light = false
 var torch
 var heart
-var totalHearts = 0
+var totalHearts = 1
 var dimension = "purple"
 
 signal heartGain
 signal heartsVisible
+signal levelCam
 
 
 # DELETES ALL ACTIVES INSTANCES
@@ -165,7 +167,7 @@ func coreSignals():
 
 func HI_HUD():
 	
-	emit_signal("heartGain")
+	emit_signal("heartGain", totalHearts)
 	totalHearts += 1
 	
 # WIN CONDITION, SWAP TO NEXT LEVEL
@@ -184,6 +186,7 @@ func _on_Door_level_complete():
 		
 	print("level complete signal received")
 	level_counter += 1
+	emit_signal("levelCam")
 	print(sceneTree)
 	print("red" + str(sceneTree.get_nodes_in_group("red").size()))
 	print("purple" + str(sceneTree.get_nodes_in_group("purple").size()))

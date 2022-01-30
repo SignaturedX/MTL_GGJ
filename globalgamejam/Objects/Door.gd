@@ -18,12 +18,13 @@ func _process(_delta):
 		if player_detected == true and win_condition == true: #check if there is also a collision
 			print("door")
 			$AnimatedSprite.play("open") #light the torch
-			#$AudioStreamPlayer.play()
+			if !$AudioStreamPlayer.playing:
+				$AudioStreamPlayer.play()
+			yield(get_tree().create_timer(0.5), "timeout")
+			$AudioStreamPlayer.stop()
 			emit_signal("level_complete")
 			print("level complete signal emitted")
 			player_detected = false
-			
-	print(state)
 			
 
 func _on_Door_body_entered(_body):

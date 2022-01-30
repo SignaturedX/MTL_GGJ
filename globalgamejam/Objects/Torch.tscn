@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://lit-torch.png" type="Texture" id=1]
 [ext_resource path="res://unlit-torch.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Torch.gd" type="Script" id=3]
+[ext_resource path="res://Audio/ES_Torch_Movement_1_-_SFX_Producer.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 16 )
@@ -34,6 +35,9 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "lit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Torch_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Torch_body_exited"]

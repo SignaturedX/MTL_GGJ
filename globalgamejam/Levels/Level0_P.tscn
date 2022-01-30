@@ -468,7 +468,7 @@ position = Vector2( 36, 59 )
 rotation = 0.00024115
 
 [node name="Heart" parent="." instance=ExtResource( 2 )]
-position = Vector2( 56, 184 )
+position = Vector2( -70, 37 )
 
 [node name="Label" type="Label" parent="Heart"]
 margin_left = 40.0

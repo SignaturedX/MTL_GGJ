@@ -20,9 +20,9 @@ func display_health(health_p=0, health_r=0):
 
 		heart_group_red[i].texture = red_heart
 
-func _on_Levels_heartGain():
+func _on_Levels_heartGain(heartNum):
 	
-	display_health(1, 1)
+	display_health(heartNum, heartNum)
 
 
 func _on_Levels_heartsVisible(dim):

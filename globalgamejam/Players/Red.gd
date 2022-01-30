@@ -13,8 +13,10 @@ export var level = 0
 export var health = 3
 
 func _ready():
-	camera_pos(level)
+
+	pass
 
 func _physics_process(delta):
 	
 	physics(delta, char_name, ACCELERATION, MAX_SPEED, FRICTION, GRAVITY, JUMP_FORCE, AIR_RESISTANCE)
+	camera_pos(level)

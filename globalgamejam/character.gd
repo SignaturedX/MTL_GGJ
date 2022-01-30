@@ -7,10 +7,10 @@ onready var sprite = $AnimatedSprite
 onready var camera = $Camera2D
 
 func camera_pos(level):
+	
 	var viewport = get_viewport().size
 	match level:
 		0:
-			print("level 0 camera")
 			camera.limit_top = 0
 			camera.limit_left = 0
 #			camera.limit_right = viewport.x
@@ -18,7 +18,6 @@ func camera_pos(level):
 			camera.limit_right = 10000
 			camera.limit_bottom = 10000
 		1: 
-			print("level 1 camera")
 			camera.limit_top = 0
 			camera.limit_left = 0
 			camera.limit_right = 100000
