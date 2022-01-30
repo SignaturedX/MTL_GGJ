@@ -77,16 +77,6 @@ anims/RESET = SubResource( 1 )
 anims/fade_to_black = SubResource( 2 )
 anims/fade_to_normal = SubResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_left = -16.0
-margin_right = 384.0
-margin_bottom = 224.0
-color = Color( 0.0784314, 0.0823529, 0.164706, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Levels" parent="." instance=ExtResource( 1 )]
 
 [connection signal="start_game" from="UI/MainMenu" to="." method="_on_MainMenu_start_game"]

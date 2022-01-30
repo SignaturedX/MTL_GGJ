@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/galazy_heart.png-a5cb28dab4dca6b85e3915ab1dce0b7c.stex"
+path="res://.import/lamp_sheet.png-f9c271a7f9c57d1a709be97cf6de1e34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://galazy_heart.png"
-dest_files=[ "res://.import/galazy_heart.png-a5cb28dab4dca6b85e3915ab1dce0b7c.stex" ]
+source_file="res://lamp_sheet.png"
+dest_files=[ "res://.import/lamp_sheet.png-f9c271a7f9c57d1a709be97cf6de1e34.stex" ]
 
 [params]
 

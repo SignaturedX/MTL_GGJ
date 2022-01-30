@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="globalgamejam"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://icon_DofS.png"
 
 [display]
 

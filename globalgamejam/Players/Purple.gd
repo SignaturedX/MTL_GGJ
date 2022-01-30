@@ -2,7 +2,7 @@ extends "res://character.gd"
 
 const ACCELERATION = 512
 const MAX_SPEED = 80
-const FRICTION = 0.1
+const FRICTION = 1
 const GRAVITY = 400
 const JUMP_FORCE = 128
 const AIR_RESISTANCE = 0.02

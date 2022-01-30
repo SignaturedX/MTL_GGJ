@@ -13,8 +13,10 @@ func camera_pos(level):
 			print("level 0 camera")
 			camera.limit_top = 0
 			camera.limit_left = 0
-			camera.limit_right = viewport.x
-			camera.limit_bottom = viewport.y
+#			camera.limit_right = viewport.x
+#			camera.limit_bottom = viewport.y
+			camera.limit_right = 10000
+			camera.limit_bottom = 10000
 		1: 
 			print("level 1 camera")
 			camera.limit_top = 0
